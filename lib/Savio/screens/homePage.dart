@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'package:tables24_v3/Savio/functions/getRestaurantDetails.dart';
 import 'package:tables24_v3/Savio/widgets/restaurantBookingButton.dart';
 import 'package:tables24_v3/Savio/widgets/restaurantDescription.dart';
@@ -20,7 +21,11 @@ class HomePage1 extends StatefulWidget {
 class _HomePage1State extends State<HomePage1> {
   @override
   Widget build(BuildContext context) {
+    print("the current selected restaurant is " + currentUserAndRestaurantDetails['resId'].toString());
+    print("the current selected customer is " + currentUserAndRestaurantDetails['custId'].toString());
+
     return Scaffold(
+      
       body: FutureBuilder(
         future: getRestaurantDetails(widget.resId),
         builder: (BuildContext context, AsyncSnapshot snapshot) {

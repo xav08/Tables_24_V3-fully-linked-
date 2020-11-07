@@ -46,7 +46,12 @@ class _LogPageState extends State<LogPage> {
     if (responsebody[0]['status'] == "success"){
       print(responsebody[0]['cust_name']);
       currentUserAndRestaurantDetails["custId"] = responsebody[0]["cust_id"];
+      currentUserAndRestaurantDetails["custName"] = responsebody[0]["cust_name"];
+      currentUserAndRestaurantDetails["custEmail"] = responsebody[0]["cust_email"];
+      currentUserAndRestaurantDetails["custPhone"] = responsebody[0]["phone_number"];
+
       print("currently used customer id is " + currentUserAndRestaurantDetails["custId"]);
+      print(currentUserAndRestaurantDetails);
 
       Fluttertoast.showToast(
           msg: "LOGIN SUCCESSFUL",

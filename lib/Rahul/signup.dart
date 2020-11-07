@@ -4,9 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 
+import 'package:tables24_v3/main.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+
 
     home: SignupPage(),
   )
@@ -34,9 +37,9 @@ class _SignupPageState extends State<SignupPage> {
   void register()async {
     var url = "https://tables24.000webhostapp.com/Rahul/regg.php";
     var data =  {
-      "cust_email" : cust_name.text,
-      "cust_pass" : cust_email.text,
-      "cust_name" : cust_pass.text,
+      "cust_email" : cust_email.text,
+      "cust_pass" : cust_pass.text,
+      "cust_name" : cust_name.text,
       "phone_number" : phone_number.text,
 
     };
@@ -73,6 +76,16 @@ class _SignupPageState extends State<SignupPage> {
     };*/
 
     print(responsebody);
+    Fluttertoast.showToast(
+        msg: "Successfully Registered",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+
   }
 
 
@@ -209,7 +222,7 @@ class _SignupPageState extends State<SignupPage> {
                               height: 50,
                               color: Colors.red[600],
                               child: Text(
-                               'Register',
+                                'Register',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -217,20 +230,21 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                               onPressed: (){
                                 register();
+                                Navigator.of(context).pop();
                               },
 
                             ))
                       ],
 
 
-                     /* height: 50,
+                      /* height: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: Colors.red[600],
 
                       ),*/
 
-                     /* child: Container(
+                      /* child: Container(
 
                         child: InkWell(
                           onTap: (){

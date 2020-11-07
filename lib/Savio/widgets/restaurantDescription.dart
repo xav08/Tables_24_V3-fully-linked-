@@ -19,8 +19,9 @@ class RestaurantDescription extends StatelessWidget {
                 "Description",
                 style: TextStyle(
                   fontSize: 40,
+                  fontFamily:'Itim',
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey,
+                  color: Colors.red,
                 ),
               ),
             ),
@@ -32,12 +33,13 @@ class RestaurantDescription extends StatelessWidget {
                 child: Text(
                     "${snap[0]['description']}",
                     style: TextStyle(
-                        fontWeight: FontWeight.normal,
+                    color: Colors.black, fontFamily:'Itim',fontWeight:FontWeight.bold,fontSize: 20,
+                        /*fontWeight: FontWeight.normal,
                         fontSize: 20,
-                        color: Colors.black)),
+                        color: Colors.black)*/),
               ),
             ),
-          ],
+            ),],
         ),
       ),
     );

@@ -162,7 +162,7 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.grey),
                   gradient: LinearGradient(
-                    colors: [Colors.grey, Colors.white],
+                    colors: [Colors.red[600], Colors.white],
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                   ),
@@ -312,7 +312,7 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ('${snap[index]['bookedDateTime']}'.substring(0, 10).compareTo(DateTime.now().toString().substring(0, 10)) > 0
-                            && int.parse('${snap[index]['ratingCustomer']}') < 0
+                            && ["confirmed"].contains('${snap[index]['status']}')
                             )?
                             Text("Rating",
                               style: TextStyle(
@@ -323,7 +323,7 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             ),
-                            (int.parse('${snap[index]['ratingCustomer']}') == -1 || '${snap[index]['status']}' == 'cancelled')?
+                            (["cancelled", "rejected", "pending"].contains('${snap[index]['status']}'))?
 
                             StarRatingBuilder(int.parse('${snap[index]['ratingTotal']}')):
                             StarRatingButtonBuilder(int.parse('${snap[index]['ratingCustomer']}'), '${snap[index]['resrId']}','${snap[index]['resId']}' ),
@@ -335,8 +335,9 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                           onTap: () {
                             setState(() {
                               print('removing snap of index' + snap[index].toString());
-                              snap.removeAt(index);
                               cancelReservation(snap[index]['resrId']);
+                              snap.removeAt(index);
+
 
                               print(snap);
                             });

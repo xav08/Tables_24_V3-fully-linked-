@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:tables24_v3/Rahul/dataStoring.dart';
+
 class ManagerAccount extends StatefulWidget {
   @override
   _ManagerAccountState createState() => _ManagerAccountState();
@@ -27,7 +29,7 @@ class _ManagerAccountState extends State<ManagerAccount> {
         title: Text("Account Details"),
       ),
       body: FutureBuilder(
-        future: getManagerData('400001'), //TODO: Accept value from loginpage
+        future: getManagerData(currentUserAndRestaurantDetails["mangId"].toString()), //TODO: Accept value from loginpage
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -151,7 +153,9 @@ class _ManagerAccountState extends State<ManagerAccount> {
                   Container(
                     width: 300,
                     child: RaisedButton(
-                      onPressed: () {}, //TODO: Navigate to homescreen
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }, //TODO: Navigate to homescreen
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(80.0),
                       ),

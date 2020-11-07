@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 
 String dateSub;
 
@@ -50,7 +51,7 @@ class _ConfirmListState extends State<ConfirmList> {
                       dateSub = dateList[0];
                       print('$dateSub');
                       setState(() {
-                        confirmList('400001',
+                        confirmList(currentUserAndRestaurantDetails['mangId'].toString(),
                             dateSub); //TODO: Chage mang_id to value from user ID
                       });
                       ;
@@ -68,7 +69,7 @@ class _ConfirmListState extends State<ConfirmList> {
               Expanded(
                 flex: 9,
                 child: FutureBuilder(
-                  future: confirmList('400001',
+                  future: confirmList(currentUserAndRestaurantDetails['mangId'].toString(),
                       '$dateSub'), //TODO: Change hardcoded value to mang_id received from login
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {

@@ -6,6 +6,7 @@ import 'package:tables24_v3/Rahul/res_card.dart';
 import 'package:tables24_v3/Rahul/res_card1.dart';
 import 'package:tables24_v3/Rahul/res_view.dart';
 import 'package:http/http.dart' as http;
+import 'package:tables24_v3/Rahul/userProfile.dart';
 import 'dart:convert';
 
 import 'package:tables24_v3/Savio/screens/allReservations.dart';
@@ -55,13 +56,15 @@ class _FirstScreen1State extends State<FirstScreen1> {
 
   AllReservationsPage allReservationsPage;
   HomePage homePage;
+  UserProfile userProfile;
 
   @override
   void initState(){
     super.initState();
     homePage = HomePage();
     allReservationsPage = AllReservationsPage();
-    pages = [homePage, allReservationsPage];
+    userProfile = UserProfile();
+    pages = [homePage, allReservationsPage, userProfile];
 
     currentPage = homePage;
   }
@@ -369,14 +372,17 @@ class resCard extends StatelessWidget {
   final String res;
   final String image;
   final String resId;
+  final String cuisine;
+  final int rating;
 
-  resCard(this.res, this.image, this.resId);
+  resCard(this.res, this.image, this.resId, this.cuisine, this.rating);
 
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
+        currentUserAndRestaurantDetails['resId'] = resId;
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => HomePage1(res, resId)),
@@ -449,7 +455,7 @@ class resCard extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: 5,
                             itemBuilder: (context, index) {
-                              if (index < 4) {
+                              if (rating > index) {
                                 return Icon(
                                   Icons.star,
                                   color: Colors.orange,
@@ -482,7 +488,7 @@ class resCard extends StatelessWidget {
                                 color: Colors.red,
                               ),
                               child: Text(
-                                res,
+                                cuisine,
                                 style: TextStyle(color: Colors.white, fontSize: 13),
                               ),
                             );

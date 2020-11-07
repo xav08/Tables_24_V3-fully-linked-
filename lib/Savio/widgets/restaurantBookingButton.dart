@@ -21,7 +21,15 @@ class RestaurantBookingButton extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Colors.black,
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                colors: [
+                  Colors.red[800],
+                  Colors.red[500],
+                  Colors.red[400]
+                ]
+
+            )
         ),
         child: Center(
           child: Text(

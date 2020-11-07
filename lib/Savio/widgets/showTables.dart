@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'dart:convert';
 
 import 'package:tables24_v3/Savio/functions/getRestaurantDetails.dart';
@@ -37,12 +38,12 @@ class ShowTables extends StatelessWidget {
             return InkWell(
               onTap: () {
                 reserveTable(
-                    "100001",
+                  currentUserAndRestaurantDetails['custId'],
                     "${snap[index]['tableId']}",
                     requirements['date'],
                     requirements['time'],
-                    2,
-                    2,
+                    reservationRequiredDetails['duration'],
+                    reservationRequiredDetails['noOfSeats'],
                 );
               },
               child: Column(

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 
 class PendingList extends StatefulWidget {
   @override
@@ -45,7 +46,7 @@ class _PendingListState extends State<PendingList> {
       ),
       body: FutureBuilder(
         future: pendingList(
-            '400001'), //TODO: Change hardcoded value to mang_id received from login
+            currentUserAndRestaurantDetails['mangId'].toString()), //TODO: Change hardcoded value to mang_id received from login
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(

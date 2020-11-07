@@ -10,5 +10,9 @@ Map<String, dynamic> dataRequired = {
 
 Map<String, dynamic> currentUserAndRestaurantDetails ={
  "custId" : 100001,
+ "custName": "Savio",
+ "custEmail": "saviosajan14@gmail.com",
+ "custPhone": 9447430275,
  "resId"  : 200001,
+ "mangId" : 400001,
 };

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'package:tables24_v3/Savio/functions/getRestaurantDetails.dart';
 import 'package:tables24_v3/Savio/screens/firstScreen.dart';
 import 'package:tables24_v3/Savio/widgets/showTables.dart';
@@ -17,7 +18,7 @@ class BookingPage1 extends StatefulWidget {
 class _BookingPage1State extends State<BookingPage1> {
   DateTime _dateTime;
   TimeOfDay _timeOfDay;
-  int _chosenValue;
+  int _noOfSeats;
   int _duration;
   Map<String, String> requirements;
 
@@ -26,16 +27,19 @@ class _BookingPage1State extends State<BookingPage1> {
     super.initState();
     _dateTime = DateTime.now();
     _timeOfDay = TimeOfDay.now();
-    _chosenValue = 2;
+    _noOfSeats = 2;
     _duration = 1;
     reservationRequiredDetails['date'] = _dateTime.toString().substring(0, 10);
     reservationRequiredDetails['time'] = _timeOfDay.toString().substring(10, 15);
-    reservationRequiredDetails['noOfSeats'] = _chosenValue;
+    reservationRequiredDetails['noOfSeats'] = _noOfSeats;
     reservationRequiredDetails['duration'] = _duration;
   }
 
   @override
+
   Widget build(BuildContext context) {
+    print("the current selected restaurant is " + currentUserAndRestaurantDetails['resId'].toString());
+
     return Material(
         child: Scaffold(
           body: Column(
@@ -87,7 +91,7 @@ class _BookingPage1State extends State<BookingPage1> {
                     Column(
                       children: <Widget>[
                         DropdownButton<int>(
-                          value: reservationRequiredDetails['chosenValue'],
+                          value: reservationRequiredDetails['noOfSeats'],
                           items: <int>[1, 2, 3, 4]
                               .map<DropdownMenuItem<int>>((int value) {
                             return DropdownMenuItem<int>(
@@ -97,8 +101,8 @@ class _BookingPage1State extends State<BookingPage1> {
                           }).toList(),
                           onChanged: (int value) {
                             setState(() {
-                              _chosenValue = value;
-                              reservationRequiredDetails['chosenValue'] = _chosenValue;
+                              _noOfSeats = value;
+                              reservationRequiredDetails['noOfSeats'] = _noOfSeats;
                             });
                           },
                         ),
@@ -165,7 +169,7 @@ class ShowTables1 extends StatelessWidget {
             return InkWell(
               onTap: () {
                 reserveTable(
-                    "100001",
+                    currentUserAndRestaurantDetails["custId"],
                     "${snap[index]['tableId']}",
                     reservationRequiredDetails['date'],
                     reservationRequiredDetails['time'],

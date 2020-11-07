@@ -32,25 +32,14 @@ class RestaurantImage extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 10.0,
-            left: 10.0,
-            child: InkWell(
-              onTap: (){Navigator.pop(context);},
-              child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                  size: 40.0,
 
-              ),
-            ),
-          ),
           Positioned(
             top: 300.0,
             left: 20.0,
             child: Text("${snap[0]['res_name']}",
                 style: TextStyle(
                     fontSize: 30,
+                    fontFamily:'Itim',
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
           ),
@@ -62,6 +51,7 @@ class RestaurantImage extends StatelessWidget {
               child: Text(
                 "${snap[0]['address']}",
                 style: TextStyle(
+                    fontFamily:'Itim',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
@@ -76,6 +66,7 @@ class RestaurantImage extends StatelessWidget {
                 Text(
                   "(22 Reviews)",
                   style: TextStyle(
+                      fontFamily:'Itim',
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ])),

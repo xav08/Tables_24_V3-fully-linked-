@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:tables24_v3/Rahul/dataStoring.dart';
+
 getRestaurantDetails1(String resName) async{
   print(resName);
   String theUrl = "https://tables24.000webhostapp.com/Savio/getRestaurantDetails1.php";
@@ -56,8 +58,9 @@ getTables(Map<String, dynamic> requirements) async{
   var res = await http.post(Uri.encodeFull(theUrl),headers: {"Accept":"application/json"},
       body: {
         "dateTime": requirements['date'] + ' ' + requirements['time'],
-        "noOfSeats": '2',
-        "duration": '1',
+        "noOfSeats": reservationRequiredDetails['noOfSeats'].toString(),
+        "duration": reservationRequiredDetails['duration'].toString(),
+        "resId": currentUserAndRestaurantDetails["resId"].toString(),
       }
   );
   var responsBody = json.decode(res.body);

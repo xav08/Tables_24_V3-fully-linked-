@@ -35,7 +35,7 @@ class ResCard extends StatelessWidget {
 
 
           itemBuilder: (context, index) {
-            return resCard('${snap1[index]['res_name']}','${snap1[index]['image']}','${snap1[index]['restaurant_id']}'  );
+            return resCard('${snap1[index]['res_name']}','${snap1[index]['image']}','${snap1[index]['restaurant_id']}', '${snap1[index]['cuisine']}',int.parse('${snap1[index]['rating']}' )  );
 
 
 

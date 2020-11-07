@@ -6,8 +6,9 @@ class RestaurantFeaturesCard extends StatelessWidget {
   List featuresList;
   TextStyle style1 = TextStyle(
     fontSize: 40,
+    fontFamily:'Itim',
     fontWeight: FontWeight.bold,
-    color: Colors.grey,
+    color: Colors.red,
   );
 
   RestaurantFeaturesCard(String this.features) {
@@ -50,10 +51,13 @@ class RestaurantFeaturesCard extends StatelessWidget {
                   width: 50,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Colors.black, Colors.black12],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
+                      begin: Alignment.topCenter,
+                      colors: [
+                        Colors.red[800],
+                        Colors.red[500],
+                      ]
+
+                  ),
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Row(
@@ -64,8 +68,9 @@ class RestaurantFeaturesCard extends StatelessWidget {
                         size: 30,
                       ),
                       SizedBox(width: 10),
-                      Text(featuresList[index],
+                      Text(featuresList[index].toUpperCase(),
                           style: TextStyle(
+                            fontFamily:'Itim',
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           )),

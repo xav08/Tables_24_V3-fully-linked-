@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'package:tables24_v3/Rahul/welcome.dart';
 import 'package:tables24_v3/Rohan/manager_screen.dart';
 import 'signup.dart';
@@ -39,6 +40,7 @@ class _ManLogPageState extends State<ManLogPage> {
     print(responsebody);
     if (responsebody[0]['status'] == "success"){
       print(responsebody[0]['cust_name']);
+      currentUserAndRestaurantDetails['mangId'] = responsebody[0]['mang_id'];
 
       Fluttertoast.showToast(
           msg: "LOGIN SUCCESSFUL",
