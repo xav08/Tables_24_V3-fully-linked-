@@ -259,7 +259,7 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                                           fontSize: 14),
                                     ),
                                     Text(
-                                      "6",
+                                      "${snap[index]['noOfSeats']}",
                                       style: TextStyle(fontSize: 14),
                                     ),
                                   ],
@@ -312,7 +312,7 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ('${snap[index]['bookedDateTime']}'.substring(0, 10).compareTo(DateTime.now().toString().substring(0, 10)) > 0
-                            && ["confirmed"].contains('${snap[index]['status']}')
+                            && ["pending", "cancelled"].contains('${snap[index]['status']}')
                             )?
                             Text("Rating",
                               style: TextStyle(
