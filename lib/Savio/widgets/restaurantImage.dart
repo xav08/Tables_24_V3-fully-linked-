@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tables24_v3/Savio/functions/getRestaurantDetails.dart';
 import 'package:tables24_v3/Savio/widgets/restaurantImageCarousal.dart';
 import 'package:tables24_v3/Savio/widgets/starRating.dart';
 
@@ -73,16 +74,47 @@ class RestaurantImage extends StatelessWidget {
           Positioned(
               bottom: 30,
               right: 20,
-              child: InkWell(
-                child: Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
-              )),
+              child: FavouriteButton()),
         ],
       ),
+    );
+  }
+}
+
+
+
+class FavouriteButton extends StatefulWidget {
+  @override
+  _FavouriteButtonState createState() => _FavouriteButtonState();
+}
+
+class _FavouriteButtonState extends State<FavouriteButton> {
+  bool state = true;
+  @override
+  void initState() {
+    super.initState();
+    if(checkResInFav())
+      state = true;
+    else
+      state = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Icon(
+        Icons.favorite,
+        color: (state)? Colors.red: Colors.white,
+        size: 40,
+      ),
+      onTap: () {setState(() {state = ! state;
+      print("state = " + state.toString());
+      if(state == true)
+        addFavourite(1);
+      else
+        addFavourite(-1);
+      });
+      },
     );
   }
 }

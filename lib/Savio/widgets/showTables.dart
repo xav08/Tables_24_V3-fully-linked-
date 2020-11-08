@@ -46,9 +46,12 @@ class ShowTables extends StatelessWidget {
                     reservationRequiredDetails['noOfSeats'],
                 );
               },
-              child: Column(
-                children: <Widget>[
-                  Container(
+              child: Container(
+                child: Stack(
+                  children:<Widget> [
+                    Container(width: 20, height: 20, color: Colors.black,),
+
+                    Container(
                     height: MediaQuery.of(context).size.height / 3,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
@@ -61,10 +64,9 @@ class ShowTables extends StatelessWidget {
                           fit: BoxFit.cover),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  )
-                ],
+                    Container(width: 20, height: 20, color: Colors.black,),
+
+                ],),
               ),
             );
           },

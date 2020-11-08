@@ -145,4 +145,42 @@ addRating(String resrId, String rating, String resId) async{
   print(respBody);
 }
 
+checkResInFav(){
+  List favouriteList = currentUserAndRestaurantDetails['favourites'].split(', ');
+  print(favouriteList);
+  if(favouriteList.contains(currentUserAndRestaurantDetails['resId']))
+    return true;
+  else
+    return false;
+}
 
+
+
+addFavourite(int status) async {
+  List favouriteList = currentUserAndRestaurantDetails['favourites'].split(', ');
+
+  if (status == 1)
+      favouriteList.add(currentUserAndRestaurantDetails['resId']);
+  else
+    favouriteList.remove(currentUserAndRestaurantDetails['resId']);
+
+  currentUserAndRestaurantDetails['favourites'] = favouriteList.join(", ");
+  print("the currrent favourites are " + currentUserAndRestaurantDetails['favourites']);
+  print(currentUserAndRestaurantDetails['custId']);
+
+
+  String theUrl = "https://tables24.000webhostapp.com/Savio/changeFavourites.php";
+  var res = await http.post(Uri.encodeFull(theUrl),headers: {"Accept":"application/json"},
+      body: {
+        "custId": currentUserAndRestaurantDetails['custId'],
+        "favourites": currentUserAndRestaurantDetails['favourites']
+
+      }
+  );
+  var respBody = json.decode(res.body);
+  print(respBody);
+}
+
+removeFavorite()async{
+
+}

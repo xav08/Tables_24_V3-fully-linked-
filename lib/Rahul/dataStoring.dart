@@ -14,5 +14,7 @@ Map<String, dynamic> currentUserAndRestaurantDetails ={
  "custEmail": "saviosajan14@gmail.com",
  "custPhone": 9447430275,
  "resId"  : 200001,
+ "favourites" : '',
  "mangId" : 400001,
+ "resLayout": "www.google.com",
 };

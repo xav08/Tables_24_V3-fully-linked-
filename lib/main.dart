@@ -49,7 +49,7 @@ class _LogPageState extends State<LogPage> {
       currentUserAndRestaurantDetails["custName"] = responsebody[0]["cust_name"];
       currentUserAndRestaurantDetails["custEmail"] = responsebody[0]["cust_email"];
       currentUserAndRestaurantDetails["custPhone"] = responsebody[0]["phone_number"];
-
+      currentUserAndRestaurantDetails['favourites'] = responsebody[0]['favourites'];
       print("currently used customer id is " + currentUserAndRestaurantDetails["custId"]);
       print(currentUserAndRestaurantDetails);
 

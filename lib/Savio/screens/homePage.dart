@@ -42,6 +42,8 @@ class _HomePage1State extends State<HomePage1> {
             );
           }
           print(snap1);
+          currentUserAndRestaurantDetails['resLayout'] = "${snap1[0]['layout']}";
+          print(currentUserAndRestaurantDetails["resLayout"]);
           return Material(
             child: ListView(
               children: <Widget>[
