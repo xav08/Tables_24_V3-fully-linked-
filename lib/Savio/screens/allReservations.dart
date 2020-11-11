@@ -179,7 +179,9 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                           Image(
                               image: NetworkImage(
                                 "${snap[index]['image']}",
-                              )),
+                              ), fit: BoxFit.contain
+
+                          ),
                           SizedBox(
                             width: 10,
                           ),
