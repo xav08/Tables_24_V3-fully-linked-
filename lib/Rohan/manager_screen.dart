@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tables24_v3/Rahul/dataStoring.dart';
+import 'package:tables24_v3/Rohan/confirm_list.dart';
+import 'package:tables24_v3/Rohan/manager_account.dart';
+import 'package:tables24_v3/Rohan/pending_list.dart';
 import 'package:tables24_v3/Rohan/confirm_list.dart';
 import 'package:tables24_v3/Rohan/manager_account.dart';
 import 'package:tables24_v3/Rohan/pending_list.dart';
@@ -24,6 +28,7 @@ class _ManagerScreenState extends State<ManagerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("current manager id is :" + currentUserAndRestaurantDetails['mangId'].toString());
     return Scaffold(
       body: Center(
 //        physics: NeverScrollableScrollPhysics(),
@@ -33,15 +38,11 @@ class _ManagerScreenState extends State<ManagerScreen> {
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.confirmation_number,
-            ),
-            title: Text(
-              'Confirmed',
-            ),
+            icon: Icon(Icons.confirmation_number),
+            title: Text('Reservations'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.query_builder),
+            icon: Icon(Icons.access_time),
             title: Text('Pending'),
           ),
           BottomNavigationBarItem(

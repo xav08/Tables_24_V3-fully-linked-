@@ -18,3 +18,7 @@ Map<String, dynamic> currentUserAndRestaurantDetails ={
  "mangId" : 400001,
  "resLayout": "www.google.com",
 };
+
+Map<String, dynamic> snapForRestaurantDetails = {
+ "snap1": {},
+};

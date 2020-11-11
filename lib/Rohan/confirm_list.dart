@@ -32,7 +32,6 @@ class _ConfirmListState extends State<ConfirmList> {
       ),
       body: new Builder(
         builder: (BuildContext context) {
-          DateTime date;
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -51,16 +50,16 @@ class _ConfirmListState extends State<ConfirmList> {
                       dateSub = dateList[0];
                       print('$dateSub');
                       setState(() {
-                        confirmList(currentUserAndRestaurantDetails['mangId'].toString(),
+                        confirmList(currentUserAndRestaurantDetails['mangId'],
                             dateSub); //TODO: Chage mang_id to value from user ID
                       });
                       ;
                     }, currentTime: DateTime.now(), locale: LocaleType.en);
                   },
                   child: Text(
-                    'Select Date',
+                    'SELECT DATE',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.indigo,
                       fontSize: 15.0,
                     ),
                   ),
@@ -69,8 +68,8 @@ class _ConfirmListState extends State<ConfirmList> {
               Expanded(
                 flex: 9,
                 child: FutureBuilder(
-                  future: confirmList(currentUserAndRestaurantDetails['mangId'].toString(),
-                      '$dateSub'), //TODO: Change hardcoded value to mang_id received from login
+                  future: confirmList(currentUserAndRestaurantDetails['mangId'],
+                      dateSub),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
@@ -80,7 +79,7 @@ class _ConfirmListState extends State<ConfirmList> {
                     if (snapshot.hasError) {
                       return Center(
                         child: Text(
-                          "Error fetching Data",
+                          "select a date",
                           style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,

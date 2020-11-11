@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tables24_v3/Savio/screens/bookingPage.dart';
 import 'package:tables24_v3/Savio/screens/bookingPage1.dart';
+import 'package:tables24_v3/Savio/screens/bookingPage3.dart';
 class RestaurantBookingButton extends StatelessWidget {
   List <dynamic> snap;
   RestaurantBookingButton(List <dynamic> this.snap);
@@ -12,7 +13,7 @@ class RestaurantBookingButton extends StatelessWidget {
         String temp1 = snap[0]['restaurant_id'];
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => BookingPage1(temp, temp1)),
+          MaterialPageRoute(builder: (context) => HomePage2(temp, temp1)),
         );
       },
       child: Container(

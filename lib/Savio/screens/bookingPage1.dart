@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'package:tables24_v3/Savio/functions/getRestaurantDetails.dart';
 import 'package:tables24_v3/Savio/screens/firstScreen.dart';
@@ -65,7 +66,7 @@ class _BookingPage1State extends State<BookingPage1> {
                 image: DecorationImage(
                   image: NetworkImage(
                       currentUserAndRestaurantDetails["resLayout"]),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -202,6 +203,15 @@ class ShowTables1 extends StatelessWidget {
                   reservationRequiredDetails['duration'],
                   reservationRequiredDetails['noOfSeats'],
                 );
+                Fluttertoast.showToast(
+                    msg: "Your request has been noted.Check booking screen for more details",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.green,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
                 Navigator.pop(context);
                 Navigator.pop(context);
                 /*Navigator.push(
@@ -246,7 +256,7 @@ class ShowTables1 extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "Table Id : " + "${snap[index]['tableId']}",
+                                  "Table Id : " + "${snap[index]['localTableId']}",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontFamily: 'Itim',

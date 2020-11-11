@@ -240,13 +240,13 @@ class _BuildingReservationCardState extends State<BuildingReservationCard> {
                                   CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "BOOKED ON",
+                                      "Table Booked",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14),
                                     ),
                                     Text(
-                                      "${snap[index]['bookedOn']}",
+                                      "${snap[index]['localTableId']}",
                                       style: TextStyle(fontSize: 14),
                                     ),
                                     SizedBox(

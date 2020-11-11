@@ -11,6 +11,7 @@ import 'dart:convert';
 
 import 'package:tables24_v3/Savio/screens/allReservations.dart';
 import 'package:tables24_v3/Savio/screens/bookingPage1.dart';
+import 'package:tables24_v3/Savio/screens/bookingPage3.dart';
 import 'package:tables24_v3/Savio/screens/homePage.dart';
 
 void main() {
@@ -147,7 +148,6 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: <Widget>[
-                CategoryTitle(title: "All", active: true),
                 CategoryTitle(title: "Indian"),
                 CategoryTitle(title: "Arabian"),
                 CategoryTitle(title: "Continental"),
@@ -315,7 +315,7 @@ class resCard extends StatelessWidget {
         currentUserAndRestaurantDetails['resId'] = resId;
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage1(res, resId)),
+          MaterialPageRoute(builder: (context) => HomePage2(res, resId)),
         );
       },
       child: Stack(alignment: Alignment.topCenter, children: <Widget>[
@@ -520,7 +520,7 @@ class DataSearch extends SearchDelegate<String> {
                       currentUserAndRestaurantDetails['resId'] = '${snap1[index]['resId']}';
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage1('${snap1[index]['resName']}', '${snap1[index]['resId']}')),
+                        MaterialPageRoute(builder: (context) => HomePage2('${snap1[index]['resName']}', '${snap1[index]['resId']}')),
                       );
                     },
                       child: resCard1('${snap1[index]['resName']}',

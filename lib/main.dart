@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:splashscreen/splashscreen.dart';
 import 'package:tables24_v3/Rahul/dataStoring.dart';
 import 'package:tables24_v3/Rahul/home.dart';
 import 'package:tables24_v3/Rahul/manlog.dart';
@@ -11,6 +12,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tables24_v3/Rohan/manager_screen.dart';
+import 'package:tables24_v3/Savio/screens/bookingPage3.dart';
 import 'package:tables24_v3/Savio/screens/firstScreen.dart';
 
 void main() {
@@ -20,10 +22,34 @@ void main() {
       '/signup': (BuildContext context) => new SignupPage(),
       '/manlogin': (BuildContext context) => new ManLogPage(),
     },
-    home: /*ManagerScreen(),//FirstScreen(),*/LogPage(),
+    home: LoadScreen(),// BookingPage3(),
   )
   );
 }
+
+
+class LoadScreen extends StatefulWidget {
+  @override
+  _LoadScreenState createState() => _LoadScreenState();
+}
+
+class _LoadScreenState extends State<LoadScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      routeName: "/",
+      seconds: 7,
+      backgroundColor: Colors.white,
+      image: Image.asset('images/logo.png'),
+      loaderColor: Colors.red,
+      photoSize: 150.0,
+      navigateAfterSeconds: LogPage(),
+
+    );
+  }
+}
+
+
 
 class LogPage extends StatefulWidget {
   @override

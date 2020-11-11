@@ -68,7 +68,7 @@ class StarRatingBuilder extends StatelessWidget {
                 child: rating > index
                 ? Icon(
                     Icons.star,
-                    color: Colors.yellowAccent,
+                    color: Colors.orange,
                     size: 20.0,
                   )
                 : Icon(

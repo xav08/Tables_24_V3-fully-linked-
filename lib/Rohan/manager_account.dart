@@ -29,7 +29,7 @@ class _ManagerAccountState extends State<ManagerAccount> {
         title: Text("Account Details"),
       ),
       body: FutureBuilder(
-        future: getManagerData(currentUserAndRestaurantDetails["mangId"].toString()), //TODO: Accept value from loginpage
+        future: getManagerData(currentUserAndRestaurantDetails['mangId']), //TODO: Accept value from loginpage
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -154,7 +154,9 @@ class _ManagerAccountState extends State<ManagerAccount> {
                     width: 300,
                     child: RaisedButton(
                       onPressed: () {
+
                         Navigator.pop(context);
+
                       }, //TODO: Navigate to homescreen
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(80.0),
@@ -212,35 +214,3 @@ class _ManagerAccountState extends State<ManagerAccount> {
     );
   }
 }
-
-//Column(
-//children: <Widget>[
-//Icon(
-//Icons.account_box,
-//size: 100.0,
-//color: Colors.black54,
-//),
-//SizedBox(
-//height: 20.0,
-//),
-//Text(
-//'Name: ${snap[index]['mang_name']}',
-//style: TextStyle(
-//fontSize: 30.0,
-//),
-//),
-//Text('Manager ID: ${snap[index]['mang_id']}'),
-//Text('Restaurant ID: ${snap[index]['res_id']}'),
-//FlatButton.icon(
-//onPressed: null, //TODO: Navigate to login page
-//icon: Icon(
-//Icons.power_settings_new,
-//color: Colors.red,
-//),
-//label: Text(
-//'Logout',
-//style: TextStyle(color: Colors.red),
-//),
-//),
-//],
-//),
